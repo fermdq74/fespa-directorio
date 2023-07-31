@@ -41,7 +41,7 @@ function getAsociados() {
           function done(err) {
             if (err) {
                 console.error(err);
-                return;
+                return reject(err);
             }
             const transformed = data.map((e) => {
                 return {
@@ -50,8 +50,8 @@ function getAsociados() {
                     Email: e["Email"],
                     Region: e["Region"],
                     Provincia: e["Provincia"],
-                    Producción: e["Producción"],
-                    Tecnología: e["Tecnología de impresión"],
+                    Produccion: e["Producción"],
+                    Tecnologia: e["Tecnología de impresión"],
                     Especialidad: e["Especialidad"],
                 };
             });
@@ -70,26 +70,32 @@ function getAsociado( id ) {
     base("Asociados").find(id, function (err, record) {
       if (err) {
         console.error(err);
-        return;
+        return reject(err);
       }
-      console.log(record._rawJson.fields);
+
+      data.push(record._rawJson.fields);
       
-      /*
       const transformed = data.map((record) => {
         return {
+          ID: record["ID"],
           Name: record["Nombre"],
           Logo: record.Logo[0].url,
           Email: record["Email"],
+          Produccion: record["Producción"],
+          Tecnologia: record["Tecnología de impresión"],
+          Especialidad: record["Especialidad"],
+          Website: record["Website"],
+          Telefono: record["Telefono"],
+          Contacto: record["Contacto"],
           Region: record["Region"],
           Provincia: record["Provincia"],
-          Producción: record["Producción"],
-          Tecnología: record["Tecnología de impresión"],
-          Especialidad: record["Especialidad"],
+          Direccion: record["Direccion"],
         };
       });
-      */
+
+      console.log(transformed);
       
-      return resolve(record._rawJson.fields);
+      return resolve(transformed);
     });
   });
 }
