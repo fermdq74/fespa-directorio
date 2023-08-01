@@ -11,6 +11,7 @@ const functions = require('firebase-functions');
 const {onRequest} = require("firebase-functions/v2/https");
 const logger = require("firebase-functions/logger");
 const graphqlSocios = require('./appSocios.js');
+const graphqlColaboradores = require('./appColaboradores.js');
 
 module.exports.getAsociados = functions.https.onRequest(async (request, response) => {
    response.header('Access-Control-Allow-Origin', '*');
@@ -25,6 +26,23 @@ module.exports.getAsociado = functions.https.onRequest(async (request, response)
 
    const idAsociado = request.query.id; // id for test 'rec6SBf2K65409UZb';
    const resp = await graphqlSocios.getAsociado( idAsociado );
+   response.json(resp);
+
+});
+
+module.exports.getColaboradores = functions.https.onRequest(async (request, response) => {
+   response.header('Access-Control-Allow-Origin', '*');
+
+   const colaboradores = await graphqlColaboradores.getColaboradores();
+   response.json(colaboradores);
+
+});
+
+module.exports.getColaborador = functions.https.onRequest(async (request, response) => {
+   response.header('Access-Control-Allow-Origin', '*');
+
+   const idColaborador = request.query.id; // id for test 'recLGJ26RWuvNmrcS';
+   const resp = await graphqlColaboradores.getColaborador( idColaborador );
    response.json(resp);
 
 });
