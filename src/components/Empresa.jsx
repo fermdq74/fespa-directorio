@@ -4,16 +4,16 @@ import "./Empresa.css";
 export default function Empresa({ empresa }) {
   return (
     <Card id="empresa" style={{ maxWidth: "540px" }}>
-      <Card.Img src={empresa.img} alt="..." />
+      <Card.Img src={empresa.Logo} alt="..." />
       <Card.Body className="card-body">
-        <Card.Title className="card-title">{empresa.title}</Card.Title>
+        <Card.Title className="card-title">{empresa.Name}</Card.Title>
         <Card.Text className="card-text">
           <img className="contacto" src="/icon/ubicacion.png" alt="contacto" />
-          {empresa.ubicacion}
+          {empresa.Region}. {empresa.Provincia}
         </Card.Text>
         <Card.Text className="card-text">
           <img className="contacto" src="/icon/contacto.png" alt="contacto" />
-          {empresa.tel}
+          {empresa.Telefono}
         </Card.Text>
       </Card.Body>
     </Card>
