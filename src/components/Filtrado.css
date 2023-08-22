@@ -48,7 +48,21 @@ h2.sector-actividad, h2.localidad {
     color: #285d83;
     text-align: center;
     margin-top: 6rem;
+    width: 255px;
 }
+
+#asoc, #socio-colab {
+  width: 255px;
+}
+
+#localidad {
+    width: 255px;
+}
+
+div#asoc, div#socio-colab, div#localidad {
+    width: 20rem;
+}
+
 
 
 /* Responsive */
@@ -56,7 +70,7 @@ h2.sector-actividad, h2.localidad {
 @media (max-width: 992px) {
 
     .css-2m9kme-MuiFormControl-root {
-        width: 245px !important;
+        width: 310px !important;
     }
 
     div.filtrado {
@@ -66,4 +80,9 @@ h2.sector-actividad, h2.localidad {
         margin: 0 auto;
     }
 
+    h2.sector-actividad, h2.localidad {
+        width: 300px;
+    }
+
 }
+

@@ -31,10 +31,13 @@
   }
 
   img {
-    width:110px;
-    height:80px;
+    width:113px;
+    height:56px;
   }
 
+  .active {
+    color: #58a8e0!important;
+  }
 
 
   /* Responsive */
