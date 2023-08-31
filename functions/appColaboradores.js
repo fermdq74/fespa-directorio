@@ -3,19 +3,19 @@ const base = new Airtable({ apiKey: `${process.env.AIRTABLE_TOKEN}` }).base(
     'app5ssUaa0Y5YNcsN'
 );
 
-function getAsociados() {
+function getColaboradores() {
 
-    const table = "Asociados";
+    const table = "Socios Colaboradores";
     let fields = [
       "Nombre",
       "Logo",
       "Email",
+      "Telefono",
       "Comunidad Autónoma",
       "Provincia",
-      "Producción",
-      "Tecnología de impresión",
-      "Especialidad",
-      "Telefono"
+      "Distribuidor",
+      "Fabricante",
+      "Tecnología de impresión"
     ];
     const data = [];
   
@@ -44,7 +44,7 @@ function getAsociados() {
                 console.error(err);
                 return reject(err);
             }
-            const results = data.map((e) => {
+            const transformed = data.map((e) => {
                 return {
                     Name: e["Nombre"],
                     Logo: e["Logo"] === undefined ? null : e["Logo"][0].url,
@@ -52,43 +52,41 @@ function getAsociados() {
                     Email: e["Email"],
                     Region: e["Comunidad Autónoma"],
                     Provincia: e["Provincia"],
-                    Produccion: e["Producción"],
+                    Distribuidor: e["Distribuidor"],
                     Tecnologia: e["Tecnología de impresión"],
-                    Especialidad: e["Especialidad"],
+                    Fabricante: e["Fabricante"],
                 };
             });
-
-            return resolve( {results} );
+            return resolve(transformed);
           }
         );
     });    
 
 }
 
-function getAsociado( id ) {
+function getColaborador( id ) {
 
+  const table = "Socios Colaboradores";
   const data = [];
   return new Promise((resolve, reject) => {
 
-    base("Asociados").find(id, function (err, record) {
+    base(table).find(id, function (err, record) {
       if (err) {
         console.error(err);
         return reject(err);
       }
 
-      data.push(record.fields);
-
-      console.log(record.fields);
+      data.push(record._rawJson.fields);
       
       const transformed = data.map((record) => {
         return {
-          ID: record["ID"] === undefined ? null : record["ID"],
+          ID: record["ID"],
           Name: record["Nombre"],
-          Logo: record.Logo === undefined ? null : record.Logo[0].url,
+          Logo: record["Logo"] === undefined ? null : record["Logo"][0].url,
           Email: record["Email"],
-          Produccion: record["Producción"],
+          Distribuidor: record["Distribuidor"],
           Tecnologia: record["Tecnología de impresión"],
-          Especialidad: record["Especialidad"],
+          Fabricante: record["Fabricante"],
           Website: record["Website"],
           Telefono: record["Telefono"],
           Contacto: record["Contacto"],
@@ -97,7 +95,6 @@ function getAsociado( id ) {
           Direccion: record["Direccion"],
         };
       });
-      
 
       console.log(transformed);
       
@@ -106,4 +103,4 @@ function getAsociado( id ) {
   });
 }
 
-module.exports = { getAsociados, getAsociado };
+module.exports = { getColaboradores, getColaborador };
