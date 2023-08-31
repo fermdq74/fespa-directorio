@@ -15,6 +15,7 @@ div#empresa.card {
 
 div#empresa.card:hover {
     border-bottom: 4px solid #285d83;
+    cursor: pointer;
 }
 
 .card-body {
@@ -33,7 +34,8 @@ div.card-title.h5 {
 }
 
 img.contacto,
-img .ubicacion {
+img.ubicacion,
+img.correo {
     width: 20px;
     height: 20px;
 }
@@ -80,7 +82,42 @@ div#empresa.card {
     overflow: hidden;
 }
 
+/*  Modal  */
 
+#modal {
+    display: flex;
+}
+
+div#modal-info {
+    display: block;
+    margin-left: 3rem;
+}
+
+div#modal-info h4 {
+    color: #1AB394; 
+    border-left: 4px solid #1AB394;
+    padding-left: 10px;
+    margin-bottom: 1.5rem;
+}
+
+div#modal-info p {
+    margin: 0px 5px 5px 5px;
+}
+
+div.modal-header {
+    padding: 0!important;
+    border-bottom: 0;
+}
+
+ #modal img.card-img {
+    max-width: 500px;
+    max-height: 200px;
+    width: auto;
+    height: auto;
+    display: block;
+    padding: 10px;
+    margin: 0 auto;
+} 
 /* Responsive */
 
 @media (max-width: 1404px) {
@@ -96,6 +133,18 @@ div#empresa.card {
     .row>* {
         width: 79%;
     }
+
+}
+
+@media (max-width: 1000px) {
+
+    #modal {
+        display: block;
+    }
+
+   div#modal-info {
+    margin-top: 3rem;
+   }
 
 }
 
@@ -121,6 +170,11 @@ div#empresa.card {
         max-width: 250px;
         max-height: 150px;
         
+    }
+
+    #modal img.card-img {
+        max-width: 250px;
+        max-height: 150px;
     }
 
     div#empresa.card {
