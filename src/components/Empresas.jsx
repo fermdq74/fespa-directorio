@@ -4,7 +4,7 @@ import Empresa from './Empresa';
 import Paginado from './Paginado';
 import Buscador from './Buscador';
 import './Empresas.css';
-import { data } from '../data/api';
+//import { data } from '../data/api';
 import { Route, Routes } from 'react-router-dom';
 import Asociados from './Asociados';
 import SocioColaboradores from './SocioColaboradores';
@@ -14,11 +14,17 @@ export default function Empresas() {
   const [empresas, setEmpresas] = useState([]);
   const [pagina, setPagina] = useState(1);
   const [filtro, setFiltro] = useState('');
+  const [isLoading, setIsLoading] = useState(true);
+  
   const empresasPorPagina = 8; 
   
   
   useEffect(() => {
-    setEmpresas(data.results);
+    //setEmpresas(data.results);
+    fetch(`http://127.0.0.1:5001/fespa-directorio/us-central1/getAsociados`)
+      .then((response) => response.json())
+      .then((result) => setEmpresas(result.results))
+      .finally(() => setIsLoading(false));
   }, []);
 
   const filtrarEmpresas = (listaEmpresas) => {
@@ -43,6 +49,15 @@ export default function Empresas() {
   const indiceFinal = Math.min(indiceInicial + empresasPorPagina, totalEmpresas);
   const empresasPaginadas = empresasFiltradas.slice(indiceInicial, indiceFinal);
 
+  if (isLoading) {
+    return (
+      <Container className='contenedor'>
+        <div className='cont-empresas'>
+          <h3>Cargando...</h3>
+        </div>
+      </Container>
+    )
+  }
 
   return (
     <Container className='contenedor'>
@@ -50,8 +65,6 @@ export default function Empresas() {
 
     <div className='main'>
 
- 
-        
     <div className='filtrado'>
     <Routes>
         <Route path='/' element={<Asociados/>} />
