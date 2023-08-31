@@ -49,7 +49,7 @@ export default function Empresa({ empresa }) {
 
             <div style={{ display: 'flex' }}  id="correo"><img className="correo" id="correo" src="/icon/correo.png" alt="contacto" />        
             <p>{empresa.Email}</p></div>
-            
+              <p>Producción: {empresa.Produccion}</p>
               <p>Tecnología: {empresa.Tecnologia}</p>
               <p>Especialidad: {empresa.Especialidad}</p>
             </div>
