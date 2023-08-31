@@ -30,13 +30,18 @@ module.exports.getAsociado = functions.https.onRequest(async (request, response)
 
 });
 
-module.exports.getColaboradores = functions.https.onRequest(async (request, response) => {
-   response.header('Access-Control-Allow-Origin', '*');
+module.exports.getColaboradores = functions
+   .runWith({
+      timeoutSeconds: 540,
+      memory: '256MB'
+   })
+   .https.onRequest(async (request, response) => {
+      response.header('Access-Control-Allow-Origin', '*');
 
-   const colaboradores = await graphqlColaboradores.getColaboradores();
-   response.json(colaboradores);
+      const colaboradores = await graphqlColaboradores.getColaboradores();
+      response.json(colaboradores);
 
-});
+   });
 
 module.exports.getColaborador = functions.https.onRequest(async (request, response) => {
    response.header('Access-Control-Allow-Origin', '*');

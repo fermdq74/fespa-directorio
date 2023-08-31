@@ -10,7 +10,7 @@ function getAsociados() {
       "Nombre",
       "Logo",
       "Email",
-      "Region",
+      "Comunidad Autónoma",
       "Provincia",
       "Producción",
       "Tecnología de impresión",
@@ -44,20 +44,21 @@ function getAsociados() {
                 console.error(err);
                 return reject(err);
             }
-            const transformed = data.map((e) => {
+            const results = data.map((e) => {
                 return {
                     Name: e["Nombre"],
-                    Logo: e.Logo[0].url,
+                    Logo: e["Logo"] === undefined ? null : e["Logo"][0].url,
                     Telefono: e["Telefono"],
                     Email: e["Email"],
-                    Region: e["Region"],
+                    Region: e["Comunidad Autónoma"],
                     Provincia: e["Provincia"],
                     Produccion: e["Producción"],
                     Tecnologia: e["Tecnología de impresión"],
                     Especialidad: e["Especialidad"],
                 };
             });
-            return resolve(transformed);
+
+            return resolve( {results} );
           }
         );
     });    
@@ -75,13 +76,15 @@ function getAsociado( id ) {
         return reject(err);
       }
 
-      data.push(record._rawJson.fields);
+      data.push(record.fields);
+
+      console.log(record.fields);
       
       const transformed = data.map((record) => {
         return {
-          ID: record["ID"],
+          ID: record["ID"] === undefined ? null : record["ID"],
           Name: record["Nombre"],
-          Logo: record.Logo[0].url,
+          Logo: record.Logo === undefined ? null : record.Logo[0].url,
           Email: record["Email"],
           Produccion: record["Producción"],
           Tecnologia: record["Tecnología de impresión"],
@@ -89,11 +92,12 @@ function getAsociado( id ) {
           Website: record["Website"],
           Telefono: record["Telefono"],
           Contacto: record["Contacto"],
-          Region: record["Region"],
+          Region: record["Comunidad Autónoma"],
           Provincia: record["Provincia"],
           Direccion: record["Direccion"],
         };
       });
+      
 
       console.log(transformed);
       

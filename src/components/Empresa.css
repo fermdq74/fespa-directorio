@@ -8,8 +8,10 @@ div#empresa.card {
     border-bottom: 4px solid #eaeaea;
     transition: all ease 0.55s;
     border-radius: 3px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
-
 
 div#empresa.card:hover {
     border-bottom: 4px solid #285d83;
@@ -17,6 +19,10 @@ div#empresa.card:hover {
 
 .card-body {
     padding: 0.5em 1em;
+}
+
+div.card-title.h5 {
+    margin: 0;
 }
 
 .card1.card img {
@@ -50,21 +56,34 @@ a.btn.btn-primary {
 
 div.card-body {
     height: 150px;
+    justify-content: center;
+    align-items: center;
+    display: grid;
+    padding: 30px 10px 30px 10px;
 }
 
-img.card-img {
-    height: 110px;
-    margin-top: 1rem;
+div#empresa.card img.card-img {
+    max-width: 190px;
+    max-height: 150px;
+    width: auto;
+    height: auto;
+    display: block;
+    padding: 10px;
+    margin: 0 auto;
+}
+
+div#empresa.card {
+    text-align: center;
+    position: relative;
+    justify-content: center;
+    display: flex;
+    overflow: hidden;
 }
 
 
 /* Responsive */
 
 @media (max-width: 1404px) {
-    img.card-img {
-        height: 180px;
-        margin-top: -1rem;
-    }
 
     .row>* {
         width: 76%;
@@ -73,10 +92,6 @@ img.card-img {
 }
 
 @media (max-width: 1200px) {
-    img.card-img {
-        height: 150px;
-        margin-top: 0.5rem;
-    }
 
     .row>* {
         width: 79%;
@@ -86,9 +101,6 @@ img.card-img {
 
 
 @media (max-width: 970px) {
-    img.card-img {
-        height: 100px;
-    }
 
     .row>* {
         width: 60%;
@@ -97,10 +109,6 @@ img.card-img {
 
 
 @media (max-width: 766px) {
-    img.card-img {
-        height: 90px;
-        margin-top: 2rem;
-    }
 
     .row>* {
         width: 76%;
@@ -109,13 +117,18 @@ img.card-img {
 
 @media (max-width: 500px) {
 
-    .card {
+    div#empresa.card img.card-img {
+        max-width: 250px;
+        max-height: 150px;
+        
+    }
+
+    div#empresa.card {
         display: block;
     }
 
-    img.card-img {
-        height: 190px;
-        margin-top: 2rem;
+    .card {
+        display: block;
     }
 
     .row>* {
@@ -124,16 +137,35 @@ img.card-img {
 }
 
 
-@media (max-width: 350px) {
+@media (max-width: 375px) {
+
+    div#empresa.card img.card-img {
+        max-width: 130px;
+        max-height: 90px;
+    }
 
     .card {
         display: block;
     }
 
-    img.card-img {
-        height: 160px;
-        margin-top: 2rem;
+
+    .row>* {
+        width: 100%;
     }
+}
+
+
+@media (max-width: 320px) {
+
+    div#empresa.card img.card-img {
+        max-width: 100px;
+        max-height: 60px;
+    }
+
+    .card {
+        display: block;
+    }
+
 
     .row>* {
         width: 100%;

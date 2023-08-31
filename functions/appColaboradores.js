@@ -11,7 +11,7 @@ function getColaboradores() {
       "Logo",
       "Email",
       "Telefono",
-      "Region",
+      "Comunidad Autónoma",
       "Provincia",
       "Distribuidor",
       "Fabricante",
@@ -47,10 +47,10 @@ function getColaboradores() {
             const transformed = data.map((e) => {
                 return {
                     Name: e["Nombre"],
-                    Logo: e.Logo[0].url,
+                    Logo: e["Logo"] === undefined ? null : e["Logo"][0].url,
                     Telefono: e["Telefono"],
                     Email: e["Email"],
-                    Region: e["Region"],
+                    Region: e["Comunidad Autónoma"],
                     Provincia: e["Provincia"],
                     Distribuidor: e["Distribuidor"],
                     Tecnologia: e["Tecnología de impresión"],
@@ -82,7 +82,7 @@ function getColaborador( id ) {
         return {
           ID: record["ID"],
           Name: record["Nombre"],
-          Logo: record.Logo[0].url,
+          Logo: record["Logo"] === undefined ? null : record["Logo"][0].url,
           Email: record["Email"],
           Distribuidor: record["Distribuidor"],
           Tecnologia: record["Tecnología de impresión"],
@@ -90,7 +90,7 @@ function getColaborador( id ) {
           Website: record["Website"],
           Telefono: record["Telefono"],
           Contacto: record["Contacto"],
-          Region: record["Region"],
+          Region: record["Comunidad Autónoma"],
           Provincia: record["Provincia"],
           Direccion: record["Direccion"],
         };
