@@ -8,6 +8,7 @@ import ListItemText from '@mui/material/ListItemText';
 import Select from '@mui/material/Select';
 import Checkbox from '@mui/material/Checkbox';
 import Localidad from './Localidad';
+import { useEffect } from 'react';
 
 
 const ITEM_HEIGHT = 48;
@@ -90,6 +91,12 @@ export default function Asociados(){
  const handleEspecialidadChange = (event) => {
     setEspecialidadSelection(event.target.value);
   };
+
+  useEffect(() => {
+    console.log(produccionSelection);
+    console.log(tecnologiaSelection);
+    console.log(especialidadSelection);
+  }, [produccionSelection, tecnologiaSelection, especialidadSelection]);
 
     return (
         <>
