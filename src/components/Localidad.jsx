@@ -104,11 +104,11 @@ export default function Localidad() {
   return (
     <div>
       <div id="localidad">
-        <h2 className="localidad">LOCALIDAD</h2>
+        <h2 className="localidad">UBICACIÓN</h2>
 
         <div>
           <FormControl sx={{ m: 1, width: 300 }}>
-            <InputLabel id="demo-multiple-checkbox-label">REGIÓN</InputLabel>
+            <InputLabel id="demo-multiple-checkbox-label">COMUNIDAD AUTÓNOMA</InputLabel>
             <Select
               labelId="demo-multiple-checkbox-label"
               id="demo-multiple-checkbox"

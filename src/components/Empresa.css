@@ -2,6 +2,7 @@
     margin: 5%;
     flex-direction: row;
     border-color: #e9e9e9;
+    background-color: #ffffff6c;
 }
 
 div#empresa.card {
@@ -61,12 +62,11 @@ div.card-body {
     justify-content: center;
     align-items: center;
     display: grid;
-    padding: 30px 10px 30px 10px;
 }
 
 div#empresa.card img.card-img {
-    max-width: 190px;
-    max-height: 150px;
+    max-width: 165px;
+    max-height: 130px;
     width: auto;
     height: auto;
     display: block;
@@ -84,17 +84,22 @@ div#empresa.card {
 
 /*  Modal  */
 
+.custom-modal {
+    max-width: 55%;
+}
+
 #modal {
     display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
 div#modal-info {
     display: block;
-    margin-left: 3rem;
 }
 
 div#modal-info h4 {
-    color: #1AB394; 
+    color: #1AB394;
     border-left: 4px solid #1AB394;
     padding-left: 10px;
     margin-bottom: 1.5rem;
@@ -105,19 +110,43 @@ div#modal-info p {
 }
 
 div.modal-header {
-    padding: 0!important;
+    padding: 0 !important;
     border-bottom: 0;
 }
 
- #modal img.card-img {
-    max-width: 500px;
-    max-height: 200px;
+#modal img.card-img {
+    max-width: 80%;
     width: auto;
     height: auto;
     display: block;
     padding: 10px;
     margin: 0 auto;
-} 
+}
+
+div.fade.modal.show {
+    padding-right: 0 !important;
+}
+
+#modal {
+    display: flex;
+}
+
+#modal-img,
+#modal-info {
+    flex: 1;
+    padding: 10px;
+    box-sizing: border-box;
+}
+
+#modal-img {
+    text-align: center;
+}
+
+#modal-info {
+    padding-left: 20px;
+}
+
+
 /* Responsive */
 
 @media (max-width: 1404px) {
@@ -142,9 +171,9 @@ div.modal-header {
         display: block;
     }
 
-   div#modal-info {
-    margin-top: 3rem;
-   }
+    div#modal-info {
+        margin-top: 3rem;
+    }
 
 }
 
@@ -154,6 +183,7 @@ div.modal-header {
     .row>* {
         width: 60%;
     }
+
 }
 
 
@@ -162,19 +192,44 @@ div.modal-header {
     .row>* {
         width: 76%;
     }
+
+    .custom-modal {
+        max-width: 60%;
+        margin: 0 auto;
+    }
+
+    div#empresa.card img.card-img {
+        max-width: 140px;
+        max-height: 90px;
+    }
+
+}
+
+@media (max-width: 576px) {
+    .custom-modal {
+        max-width: 80%;
+    }
+
+    div#empresa.card img.card-img {
+        max-width: 130px;
+        max-height: 90px;
+    }
 }
 
 @media (max-width: 500px) {
 
     div#empresa.card img.card-img {
         max-width: 250px;
-        max-height: 150px;
-        
+        max-height: 150px
     }
 
     #modal img.card-img {
         max-width: 250px;
         max-height: 150px;
+    }
+
+    .custom-modal {
+        max-width: 95%;
     }
 
     div#empresa.card {

@@ -42,7 +42,7 @@ export default function NavBar() {
               onClick={() => handleNavLinkClick("socio-colaboradores")}
               href="socio-colaboradores"
             >
-              COLABORADORES
+              SOCIO COLABORADORES
             </Nav.Link>
           </Nav>
         </Navbar.Collapse>
