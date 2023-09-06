@@ -7,6 +7,7 @@ function getColaboradores() {
 
     const table = "Socios Colaboradores";
     let fields = [
+      "ID",
       "Nombre",
       "Logo",
       "Email",
@@ -15,7 +16,8 @@ function getColaboradores() {
       "Provincia",
       "Distribuidor",
       "Fabricante",
-      "Tecnología de impresión"
+      "Tecnología de impresión",
+      "País"
     ];
     const data = [];
   
@@ -46,6 +48,7 @@ function getColaboradores() {
             }
             const transformed = data.map((e) => {
                 return {
+                    ID: e["ID"],
                     Name: e["Nombre"],
                     Logo: e["Logo"] === undefined ? null : e["Logo"][0].url,
                     Telefono: e["Telefono"],
@@ -55,6 +58,7 @@ function getColaboradores() {
                     Distribuidor: e["Distribuidor"],
                     Tecnologia: e["Tecnología de impresión"],
                     Fabricante: e["Fabricante"],
+                    Pais: e["País"],
                 };
             });
             return resolve(transformed);
@@ -76,7 +80,7 @@ function getColaborador( id ) {
         return reject(err);
       }
 
-      data.push(record._rawJson.fields);
+      data.push(record.fields);
       
       const transformed = data.map((record) => {
         return {
@@ -93,6 +97,8 @@ function getColaborador( id ) {
           Region: record["Comunidad Autónoma"],
           Provincia: record["Provincia"],
           Direccion: record["Direccion"],
+          Descripcion: record["Descripción"],
+          Pais: record["País"],
         };
       });
 

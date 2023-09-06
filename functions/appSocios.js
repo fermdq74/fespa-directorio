@@ -7,6 +7,7 @@ function getAsociados() {
 
     const table = "Asociados";
     let fields = [
+      "ID",
       "Nombre",
       "Logo",
       "Email",
@@ -46,6 +47,7 @@ function getAsociados() {
             }
             const results = data.map((e) => {
                 return {
+                    ID: e["ID"] === undefined ? null : e["ID"],
                     Name: e["Nombre"],
                     Logo: e["Logo"] === undefined ? null : e["Logo"][0].url,
                     Telefono: e["Telefono"],
@@ -95,6 +97,7 @@ function getAsociado( id ) {
           Region: record["Comunidad Autónoma"],
           Provincia: record["Provincia"],
           Direccion: record["Direccion"],
+          Descripcion: record["Descripción"],
         };
       });
       
