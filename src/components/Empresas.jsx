@@ -17,7 +17,7 @@ export default function Empresas() {
   const [filtro, setFiltro] = useState("");
   const [isLoading, setIsLoading] = useState(true);
   const location = useLocation();
-  const empresasPorPagina = 16;
+  const empresasPorPagina = 20;
 
   useEffect(() => {
     if (location.pathname === "/socio-colaboradores") {
@@ -31,7 +31,7 @@ export default function Empresas() {
           }
         })
         .finally(() => setIsLoading(false));
-    } else if (location.pathname === "/asociados") {
+    } else if (location.pathname === "/asociados" || location.pathname === "/") {
       fetch(
         `https://us-central1-fespa-directorio.cloudfunctions.net/getAsociados`
       )
