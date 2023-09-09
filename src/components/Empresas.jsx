@@ -49,8 +49,13 @@ export default function Empresas() {
     return listaEmpresas.filter(
       (empresa) =>
       (empresa.Name && empresa.Name.toLowerCase().includes(filtro.toLowerCase())) ||
-      (empresa.Region && empresa.Region.toLowerCase().includes(filtro.toLowerCase()))    
-    );
+      (empresa.Region && empresa.Region.toLowerCase().includes(filtro.toLowerCase())) ||
+      (empresa.Produccion && empresa.Produccion.some((produccion) => produccion.toLowerCase().includes(filtro.toLowerCase()))) ||
+      (empresa.Tecnologia && empresa.Tecnologia.some((tecnologia) => tecnologia.toLowerCase().includes(filtro.toLowerCase()))) ||
+      (empresa.Especialidad && empresa.Especialidad.some((especialidad) => especialidad.toLowerCase().includes(filtro.toLowerCase()))) ||
+      (empresa.Distribuidor && empresa.Distribuidor.some((distribuidor) => distribuidor.toLowerCase().includes(filtro.toLowerCase()))) ||
+      (empresa.Fabricante && empresa.Fabricante.some((fabricante) => fabricante.toLowerCase().includes(filtro.toLowerCase())))
+    )
   };
 
   const handlePaginaChange = (pageNumber) => {
