@@ -72,11 +72,11 @@ export default function Empresa({ empresa }) {
            {empresa.Direccion && (
             <p><span>Dirección:</span>{empresa.Direccion}</p>
           )}
+           {empresa.Pais && (
+        <p><span>País:</span> {empresa.Pais}</p>
+          )}
         </div>
       </div>
-      {empresa.Pais && (
-        <p><span>País:</span> {empresa.Pais}</p>
-      )}
       {empresa.Descripcion && (
         <p className="descripcion"><span>Descripción:</span> {empresa.Descripcion}</p>
       )}
