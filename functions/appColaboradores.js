@@ -17,7 +17,11 @@ function getColaboradores() {
       "Distribuidor",
       "Fabricante",
       "Tecnología de impresión",
-      "País"
+      "País",
+      "Website",
+      "Contacto",
+      "Direccion",
+      "Descripción"
     ];
     const data = [];
   
@@ -46,19 +50,23 @@ function getColaboradores() {
                 console.error(err);
                 return reject(err);
             }
-            const transformed = data.map((e) => {
+            const transformed = data.map((record) => {
                 return {
-                    ID: e["ID"],
-                    Name: e["Nombre"],
-                    Logo: e["Logo"] === undefined ? null : e["Logo"][0].url,
-                    Telefono: e["Telefono"],
-                    Email: e["Email"],
-                    Region: e["Comunidad Autónoma"],
-                    Provincia: e["Provincia"],
-                    Distribuidor: e["Distribuidor"],
-                    Tecnologia: e["Tecnología de impresión"],
-                    Fabricante: e["Fabricante"],
-                    Pais: e["País"],
+                  ID: record["ID"],
+                  Name: record["Nombre"],
+                  Logo: record["Logo"] === undefined ? null : record["Logo"][0].url,
+                  Email: record["Email"],
+                  Distribuidor: record["Distribuidor"],
+                  Tecnologia: record["Tecnología de impresión"],
+                  Fabricante: record["Fabricante"],
+                  Website: record["Website"],
+                  Telefono: record["Telefono"],
+                  Contacto: record["Contacto"],
+                  Region: record["Comunidad Autónoma"],
+                  Provincia: record["Provincia"],
+                  Direccion: record["Direccion"],
+                  Descripcion: record["Descripción"],
+                  Pais: record["País"],
                 };
             });
             return resolve(transformed);

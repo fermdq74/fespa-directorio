@@ -16,7 +16,11 @@ function getAsociados() {
       "Producción",
       "Tecnología de impresión",
       "Especialidad",
-      "Telefono"
+      "Telefono",
+      "Website",
+      "Contacto",
+      "Direccion",
+      "Descripción"
     ];
     const data = [];
   
@@ -45,18 +49,23 @@ function getAsociados() {
                 console.error(err);
                 return reject(err);
             }
-            const results = data.map((e) => {
+            const results = data.map((record) => {
                 return {
-                    ID: e["ID"] === undefined ? null : e["ID"],
-                    Name: e["Nombre"],
-                    Logo: e["Logo"] === undefined ? null : e["Logo"][0].url,
-                    Telefono: e["Telefono"],
-                    Email: e["Email"],
-                    Region: e["Comunidad Autónoma"],
-                    Provincia: e["Provincia"],
-                    Produccion: e["Producción"],
-                    Tecnologia: e["Tecnología de impresión"],
-                    Especialidad: e["Especialidad"],
+                  ID: record["ID"] === undefined ? null : record["ID"],
+                  Name: record["Nombre"],
+                  //Logo: record.Logo === undefined ? null : record.Logo[0].url,
+                  Logo: record["Logo"] === undefined ? null : record["Logo"][0].url,
+                  Email: record["Email"],
+                  Produccion: record["Producción"],
+                  Tecnologia: record["Tecnología de impresión"],
+                  Especialidad: record["Especialidad"],
+                  Website: record["Website"],
+                  Telefono: record["Telefono"],
+                  Contacto: record["Contacto"],
+                  Region: record["Comunidad Autónoma"],
+                  Provincia: record["Provincia"],
+                  Direccion: record["Direccion"],
+                  Descripcion: record["Descripción"],
                 };
             });
 
