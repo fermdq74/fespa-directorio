@@ -10,10 +10,11 @@ export default function Buscador({ filtro, setFiltro }) {
           <Form.Control
             id="empresa"
             type="text"
-            placeholder="Buscar"
+            placeholder="Escriba aquí nombre de empresa, ciudad o servicio de comunicación visual que necesita"
             required
             value={filtro}
             onChange={(e) => setFiltro(e.target.value)}
+            title="Escriba aquí nombre de empresa, ciudad o servicio de comunicación visual que necesita"
           />
         </Form.Group>
       </Form>

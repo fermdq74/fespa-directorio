@@ -58,24 +58,24 @@ export default function Empresa({ empresa }) {
             </div>
           )}
             {empresa.Produccion && (
-            <p><span>Producción:</span> {empresa.Produccion}</p>
+            <p><span>Producción:</span> {empresa.Produccion},</p>
           )}
           {empresa.Tecnologia && (
-            <p><span>Tecnología:</span> {empresa.Tecnologia}</p>
+            <p><span>Tecnología:</span> {empresa.Tecnologia},</p>
           )}
           {empresa.Especialidad && (
-            <p><span>Especialidad:</span> {empresa.Especialidad}</p>
+            <p><span>Especialidad:</span> {empresa.Especialidad},</p>
           )}
           {empresa.Website && (
             <p><span>Website:</span><a href={empresa.Website}> {empresa.Website}</a></p>
           )}
            {empresa.Direccion && (
-            <p><span>Dirección:</span>{empresa.Direccion}</p>
+            <p><span>Dirección:</span> {empresa.Direccion}.</p>
           )}
         </div>
       </div>
       {empresa.Pais && (
-        <p><span>País:</span> {empresa.Pais}</p>
+        <p><span>País:</span> {empresa.Pais} .</p>
       )}
       {empresa.Descripcion && (
         <p className="descripcion"><span>Descripción:</span> {empresa.Descripcion}</p>
