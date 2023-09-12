@@ -12,4 +12,5 @@ body {
   line-height: 1.5;
   width: 100%;
   font-family: var(--fuentes);
+  background-color: #F7F7F5;
 }
