@@ -53,7 +53,6 @@ function getAsociados() {
                 return {
                   ID: record["ID"] === undefined ? null : record["ID"],
                   Name: record["Nombre"],
-                  //Logo: record.Logo === undefined ? null : record.Logo[0].url,
                   Logo: record["Logo"] === undefined ? null : record["Logo"][0].url,
                   Email: record["Email"],
                   Produccion: record["Producción"],
