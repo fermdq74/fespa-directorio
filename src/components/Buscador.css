@@ -1,5 +1,5 @@
 div.buscador {
-    margin-top: 2.5rem;
+    margin-top: 4.5rem;
     display: grid;
     justify-content: center;
     align-items: center;
@@ -12,7 +12,7 @@ div.buscador {
     border-radius: 3rem;
     background-color: #666666e3;
     color: white;
-    width: 280px;
+    width: 500px;
     padding-left: 30px;
     box-shadow: rgba(17, 17, 26, 0.1) 0px 4px 16px, rgba(17, 17, 26, 0.1) 0px 8px 24px, rgba(17, 17, 26, 0.1) 0px 16px 56px;
   }
@@ -27,6 +27,7 @@ div.buscador {
     -moz-box-shadow: none;
     -webkit-box-shadow: none;
   }
+
   
   /* Estilos para la imagen de la lupa */
   img.lupa {
@@ -34,6 +35,42 @@ div.buscador {
     height: 3rem;
     position: absolute;
     margin-top: 0;
-    margin-left: 70px;
+    margin-left: 191px;
     padding: 10px;
+    background-color: #757575;
+    border-radius: 0% 50% 50% 0%;
+  }
+
+  @media (max-width: 987px) { 
+    div#asoc {
+      margin-top: -4rem;
+    }
+  }
+
+  @media (max-width: 700px) { 
+
+    input#empresa.form-control {
+      width: 373px;
+    }
+
+    img.lupa {
+      margin-left: 127px;
+    }
+
+    div#asoc {
+      margin-top: -4rem;
+    }
+       
+  }
+
+  @media (max-width: 400px) { 
+
+    input#empresa.form-control {
+      width: 300px;
+    }
+
+    img.lupa {
+      margin-left: 93px;
+    }
+       
   }
