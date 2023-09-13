@@ -39,11 +39,14 @@ export default function Empresa({ empresa }) {
         )}
         <div id="modal-info">
           {empresa.Name && <h4>{empresa.Name}</h4>}
-          {empresa.Region && empresa.Provincia && (
+          {empresa.Region && empresa.Provincia && empresa.Direccion &&(
             <div style={{ display: 'flex' }} id="ubicacion">
               <img className="ubicacion" src="/icon/ubicacion.png" alt="ubicacion" />
-              <p> {empresa.Region}. {empresa.Provincia}</p>
+              <p> {empresa.Region}, {empresa.Provincia}. {empresa.Direccion}</p>
             </div>
+          )}
+            {empresa.Contacto && (
+            <p><span>Contacto:</span> {empresa.Contacto}</p>
           )}
           {empresa.Telefono && (
             <div style={{ display: 'flex' }} id="contacto">
@@ -63,14 +66,14 @@ export default function Empresa({ empresa }) {
           {empresa.Tecnologia && (
             <p><span>Tecnología:</span> {empresa.Tecnologia},</p>
           )}
+          {empresa.Fabricante && (
+            <p><span>Fabricante:</span> {empresa.Fabricante}.</p>
+          )}
           {empresa.Especialidad && (
             <p><span>Especialidad:</span> {empresa.Especialidad},</p>
           )}
           {empresa.Website && (
             <p><span>Website:</span><a href={empresa.Website}> {empresa.Website}</a></p>
-          )}
-           {empresa.Direccion && (
-            <p><span>Dirección:</span> {empresa.Direccion}.</p>
           )}
            {empresa.Pais && (
         <p><span>País:</span> {empresa.Pais}</p>
