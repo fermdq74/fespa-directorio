@@ -2,9 +2,13 @@ import Form from 'react-bootstrap/Form';
 import './Buscador.css';
 
 export default function Buscador({ filtro, setFiltro }) {
+  const handleSubmit = (e) => {
+    e.preventDefault(); 
+  };
+
   return (
     <div className='buscador'>
-      <Form>
+      <Form onSubmit={handleSubmit}>
         <Form.Group id='buscador' className="mb-3">
           <img className='lupa' src="/icon/buscador.png" alt="Icono de búsqueda"/>
           <Form.Control
