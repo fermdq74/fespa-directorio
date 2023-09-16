@@ -8,6 +8,8 @@ import ListItemText from '@mui/material/ListItemText';
 import Select from '@mui/material/Select';
 import Checkbox from '@mui/material/Checkbox';
 import Localidad from './Localidad';
+import FilterContext from '../context/FilterContext';
+import { useContext } from 'react';
 
 const ITEM_HEIGHT = 48;
 const ITEM_PADDING_TOP = 8;
@@ -107,16 +109,20 @@ export default function SocioColaboradores(){
 
   const handleDistribuidorChange = (event) => {
     setDistribuidorSelection(event.target.value);
+    addFilterItem(event.target.value);
   };
 
   const handleFabricanteChange = (event) => {
     setFabricanteSelection(event.target.value);
+    addFilterItem(event.target.value);
   };
 
   const handleTecnologiaColabChange = (event) => {
     setTecnologiaColabSelection(event.target.value);
+    addFilterItem(event.target.value);
   };
 
+  const { addFilterItem } = useContext(FilterContext);
 
   return (
     <>

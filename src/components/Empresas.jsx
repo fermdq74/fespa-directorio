@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useEffect, useState, useContext } from "react";
 import { Container } from "react-bootstrap";
 import Empresa from "./Empresa";
 import Paginado from "./Paginado";
@@ -10,6 +10,7 @@ import Asociados from "./Asociados";
 import SocioColaboradores from "./SocioColaboradores";
 import Cargando from "./Cargando";
 import { useLocation } from "react-router-dom";
+import FilterContext from '../context/FilterContext';
 
 export default function Empresas() {
   const [empresas, setEmpresas] = useState([]);
@@ -19,7 +20,11 @@ export default function Empresas() {
   const location = useLocation();
   const empresasPorPagina = 20;
 
-  useEffect(() => {
+  const { filterItem } = useContext(FilterContext);
+  const textoFiltradoItem = filterItem.join(', ');
+
+ useEffect(() => {
+  if (textoFiltradoItem.trim() === '') {
     if (location.pathname === "/socio-colaboradores") {
       fetch(
         `https://us-central1-fespa-directorio.cloudfunctions.net/getColaboradores`
@@ -31,7 +36,10 @@ export default function Empresas() {
           }
         })
         .finally(() => setIsLoading(false));
-    } else if (location.pathname === "/asociados" || location.pathname === "/") {
+    } else if (
+      location.pathname === "/asociados" ||
+      location.pathname === "/"
+    ) {
       fetch(
         `https://us-central1-fespa-directorio.cloudfunctions.net/getAsociados`
       )
@@ -43,7 +51,8 @@ export default function Empresas() {
         })
         .finally(() => setIsLoading(false));
     }
-  }, [location.pathname]);
+  }
+}, [textoFiltradoItem, location.pathname]);
 
   const filtrarEmpresas = (listaEmpresas) => {
     return listaEmpresas.filter(
@@ -57,6 +66,55 @@ export default function Empresas() {
       (empresa.Fabricante && empresa.Fabricante.some((fabricante) => fabricante.toLowerCase().includes(filtro.toLowerCase())))
     )
   };
+  
+  useEffect(() => {
+    const terminosDeBusqueda = textoFiltradoItem.toLowerCase().split(',');
+  
+    const empresasFiltradasPorTexto = empresas.filter((empresa) =>
+      (empresa.Produccion &&
+        terminosDeBusqueda.some((termino) =>
+          empresa.Produccion.some((produccion) =>
+            produccion.toLowerCase().includes(termino.trim())
+          )
+        )) ||
+      (empresa.Tecnologia &&
+        terminosDeBusqueda.some((termino) =>
+          empresa.Tecnologia.some((tecnologia) =>
+            tecnologia.toLowerCase().includes(termino.trim())
+          )
+        )) ||
+      (empresa.Especialidad &&
+        terminosDeBusqueda.some((termino) =>
+          empresa.Especialidad.some((especialidad) =>
+            especialidad.toLowerCase().includes(termino.trim())
+          )
+        )) ||
+      (empresa.Region &&
+        terminosDeBusqueda.some((termino) =>
+          empresa.Region.toLowerCase().includes(termino.trim())
+        )) ||
+      (empresa.Provincia &&
+        terminosDeBusqueda.some((termino) =>
+          empresa.Provincia.toLowerCase().includes(termino.trim())
+        )) ||
+        (empresa.Fabricante && terminosDeBusqueda.some((termino) =>
+        empresa.Fabricante.some((fabricante) =>
+          fabricante.toLowerCase().includes(termino.trim())
+        )
+      )) ||
+      (empresa.Distribuidor && terminosDeBusqueda.some((termino) =>
+        empresa.Distribuidor.some((distribuidor) =>
+          distribuidor.toLowerCase().includes(termino.trim())
+        )
+      ))
+    );
+  
+    const empresasFiltradas = filtrarEmpresas(empresasFiltradasPorTexto);
+    setEmpresas(empresasFiltradas);
+  
+    setPagina(1);
+  }, [textoFiltradoItem]);
+  
 
   const handlePaginaChange = (pageNumber) => {
     setPagina(pageNumber);

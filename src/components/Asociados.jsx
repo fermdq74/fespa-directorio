@@ -8,7 +8,8 @@ import ListItemText from '@mui/material/ListItemText';
 import Select from '@mui/material/Select';
 import Checkbox from '@mui/material/Checkbox';
 import Localidad from './Localidad';
-import { useEffect } from 'react';
+import { useContext } from 'react';
+import FilterContext from '../context/FilterContext';
 
 
 const ITEM_HEIGHT = 48;
@@ -82,21 +83,20 @@ export default function Asociados(){
 
   const handleProduccionChange = (event) => {
     setProduccionSelection(event.target.value);
+    addFilterItem(event.target.value);
   };
 
   const handleTecnologiaChange = (event) => {
     setTecnologiaSelection(event.target.value);
+    addFilterItem(event.target.value);
   };
 
  const handleEspecialidadChange = (event) => {
     setEspecialidadSelection(event.target.value);
+    addFilterItem(event.target.value);
   };
 
-  useEffect(() => {
-    console.log(produccionSelection);
-    console.log(tecnologiaSelection);
-    console.log(especialidadSelection);
-  }, [produccionSelection, tecnologiaSelection, especialidadSelection]);
+  const { addFilterItem } = useContext(FilterContext);
 
     return (
         <>

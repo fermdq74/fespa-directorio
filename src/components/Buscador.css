@@ -13,7 +13,7 @@ div.buscador {
     background-color: #666666e3;
     color: white;
     width: 500px;
-    padding-left: 30px;
+    padding-left: 18px;
     box-shadow: rgba(17, 17, 26, 0.1) 0px 4px 16px, rgba(17, 17, 26, 0.1) 0px 8px 24px, rgba(17, 17, 26, 0.1) 0px 16px 56px;
   }
   
@@ -35,7 +35,7 @@ div.buscador {
     height: 3rem;
     position: absolute;
     margin-top: 0;
-    margin-left: 191px;
+    margin-left: 200px;
     padding: 10px;
     background-color: #757575;
     border-radius: 0% 50% 50% 0%;

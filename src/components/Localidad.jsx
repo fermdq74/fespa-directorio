@@ -6,6 +6,8 @@ import ListItemText from "@mui/material/ListItemText";
 import Select from "@mui/material/Select";
 import Checkbox from "@mui/material/Checkbox";
 import * as React from "react";
+import FilterContext from '../context/FilterContext';
+import { useContext } from "react";
 
 const region = [
   "Andalucía",
@@ -95,11 +97,15 @@ export default function Localidad() {
 
   const handleProvinciaChange = (event) => {
     setProvinciaSelection(event.target.value);
+    addFilterItem(event.target.value);
   };
 
   const handleRegionChange = (event) => {
     setRegionSelection(event.target.value);
+    addFilterItem(event.target.value);
   };
+
+  const { addFilterItem } = useContext(FilterContext);
 
   return (
     <div>
