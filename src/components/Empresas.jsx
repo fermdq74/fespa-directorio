@@ -59,6 +59,7 @@ export default function Empresas() {
       (empresa) =>
       (empresa.Name && empresa.Name.toLowerCase().includes(filtro.toLowerCase())) ||
       (empresa.Region && empresa.Region.toLowerCase().includes(filtro.toLowerCase())) ||
+      (empresa.Provincia && empresa.Provincia.toLowerCase().includes(filtro.toLowerCase())) ||
       (empresa.Produccion && empresa.Produccion.some((produccion) => produccion.toLowerCase().includes(filtro.toLowerCase()))) ||
       (empresa.Tecnologia && empresa.Tecnologia.some((tecnologia) => tecnologia.toLowerCase().includes(filtro.toLowerCase()))) ||
       (empresa.Especialidad && empresa.Especialidad.some((especialidad) => especialidad.toLowerCase().includes(filtro.toLowerCase()))) ||
@@ -111,7 +112,7 @@ export default function Empresas() {
   
     const empresasFiltradas = filtrarEmpresas(empresasFiltradasPorTexto);
     setEmpresas(empresasFiltradas);
-  
+    
     setPagina(1);
   }, [textoFiltradoItem]);
   
