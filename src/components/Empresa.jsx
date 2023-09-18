@@ -16,8 +16,8 @@ export default function Empresa({ empresa }) {
         <Card.Body className="card-body">
           {empresa.Name && <Card.Title className="card-title">{empresa.Name}</Card.Title>}
           <Card.Text className="card-text">
-            {empresa.Region && empresa.Provincia && (
-              <><img className="ubicacion" src="/icon/ubicacion.png" alt="ubicacion" />{empresa.Region}. {empresa.Provincia}</>
+            {empresa.Region && (
+              <><img className="ubicacion" src="/icon/ubicacion.png" alt="ubicacion" />{empresa.Region}.{empresa.Provincia && (<>{empresa.Provincia}</>)}</>
             )}
           </Card.Text>
           <Card.Text className="card-text">
@@ -39,10 +39,10 @@ export default function Empresa({ empresa }) {
             )}
             <div id="modal-info">
               {empresa.Name && <h4>{empresa.Name}</h4>}
-              {empresa.Region && empresa.Provincia && empresa.Direccion && (
+              {empresa.Region && (
                 <div style={{ display: 'flex' }} id="ubicacion">
                   <img className="ubicacion" src="/icon/ubicacion.png" alt="ubicacion" />
-                  <p> {empresa.Region}, {empresa.Provincia}. {empresa.Direccion}</p>
+                  <p>{empresa.Region} {empresa.Provincia}. {empresa.Direccion}</p>
                 </div>
               )}
               {empresa.Contacto && (
