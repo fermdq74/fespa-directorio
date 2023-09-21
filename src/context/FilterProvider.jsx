@@ -9,12 +9,8 @@ const FilterProvider = ({ children }) => {
         setFilterItem(() =>  newFilter);
     }
     
-    const removeFilterItem = (filter) => {
-        setFilterItem((prevFilterItem) => prevFilterItem.filter((item) => item !== filter));
-    };
-
     return (
-        <FilterContext.Provider value={{ filterItem, addFilterItem, removeFilterItem }}>
+        <FilterContext.Provider value={{ filterItem, addFilterItem }}>
             {children}
         </FilterContext.Provider>
     )
