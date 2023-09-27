@@ -1,27 +1,27 @@
-import * as React from 'react';
+// import * as React from 'react';
 import './Filtrado.css';
-import OutlinedInput from '@mui/material/OutlinedInput';
-import InputLabel from '@mui/material/InputLabel';
-import MenuItem from '@mui/material/MenuItem';
-import FormControl from '@mui/material/FormControl';
-import ListItemText from '@mui/material/ListItemText';
-import Select from '@mui/material/Select';
-import Checkbox from '@mui/material/Checkbox';
+// import OutlinedInput from '@mui/material/OutlinedInput';
+// import InputLabel from '@mui/material/InputLabel';
+// import MenuItem from '@mui/material/MenuItem';
+// import FormControl from '@mui/material/FormControl';
+// import ListItemText from '@mui/material/ListItemText';
+// import Select from '@mui/material/Select';
+// import Checkbox from '@mui/material/Checkbox';
 import Localidad from './Localidad';
-import { useContext } from 'react';
-import FilterContext from '../context/FilterContext';
+// import { useContext } from 'react';
+// import FilterContext from '../context/FilterContext';
 
 
-const ITEM_HEIGHT = 48;
-const ITEM_PADDING_TOP = 8;
-const MenuProps = {
-  PaperProps: {
-    style: {
-      maxHeight: ITEM_HEIGHT * 4.5 + ITEM_PADDING_TOP,
-      width: 250,
-    },
-  },
-};
+// const ITEM_HEIGHT = 48;
+// const ITEM_PADDING_TOP = 8;
+// const MenuProps = {
+//   PaperProps: {
+//     style: {
+//       maxHeight: ITEM_HEIGHT * 4.5 + ITEM_PADDING_TOP,
+//       width: 250,
+//     },
+//   },
+// };
 
 const producción = [
   "Publicidad exterior vallas y autobuses",
@@ -76,105 +76,190 @@ const especialidad = [
 
 export default function Asociados(){
 
-  const [produccionSelection, setProduccionSelection] = React.useState([]);
-  const [tecnologiaSelection, setTecnologiaSelection] = React.useState([]);
-  const [especialidadSelection, setEspecialidadSelection] = React.useState([]);
+//   const [produccionSelection, setProduccionSelection] = React.useState([]);
+//   const [tecnologiaSelection, setTecnologiaSelection] = React.useState([]);
+//   const [especialidadSelection, setEspecialidadSelection] = React.useState([]);
 
 
-  const handleProduccionChange = (event) => {
-    setProduccionSelection(event.target.value);
-    addFilterItem(event.target.value);
-  };
+//   const handleProduccionChange = (event) => {
+//     setProduccionSelection(event.target.value);
+//     addFilterItem(event.target.value);
+//   };
 
-  const handleTecnologiaChange = (event) => {
-    setTecnologiaSelection(event.target.value);
-    addFilterItem(event.target.value);
-  };
+//   const handleTecnologiaChange = (event) => {
+//     setTecnologiaSelection(event.target.value);
+//     addFilterItem(event.target.value);
+//   };
 
- const handleEspecialidadChange = (event) => {
-    setEspecialidadSelection(event.target.value);
-    addFilterItem(event.target.value);
-  };
+//  const handleEspecialidadChange = (event) => {
+//     setEspecialidadSelection(event.target.value);
+//     addFilterItem(event.target.value);
+//   };
 
-  const { addFilterItem } = useContext(FilterContext);
+//   const { addFilterItem } = useContext(FilterContext);
 
-    return (
-        <>
-      <div id="asoc">
-        <h2 className="sector-actividad">ASOCIADOS</h2>
-             <div>
-        <FormControl sx={{ m: 1, width: 300 }}>
-          <InputLabel id="demo-multiple-checkbox-label" >PRODUCCIÓN</InputLabel>
-          <Select
-            labelId="demo-multiple-checkbox-label"
-            id="demo-multiple-checkbox"
-            multiple
-            value={produccionSelection}
-            onChange={handleProduccionChange}
-            input={<OutlinedInput label="PRODUCCIÓN" />}
-            renderValue={(selected) => selected.join(', ')}
-            MenuProps={MenuProps}
-          >
-            {producción.map((name) => (
-              <MenuItem key={name} value={name}>
-                <Checkbox checked={produccionSelection.indexOf(name) > -1} />
-                <ListItemText primary={name} />
-              </MenuItem>
-            ))}
-          </Select>
-        </FormControl>
-      </div>
+  //   return (
+  //       <>
+  //     <div id="asoc">
+  //       <h2 className="sector-actividad">ASOCIADOS</h2>
+  //            <div>
+  //       <FormControl sx={{ m: 1, width: 300 }}>
+  //         <InputLabel id="demo-multiple-checkbox-label" >PRODUCCIÓN</InputLabel>
+  //         <Select
+  //           labelId="demo-multiple-checkbox-label"
+  //           id="demo-multiple-checkbox"
+  //           multiple
+  //           value={produccionSelection}
+  //           onChange={handleProduccionChange}
+  //           input={<OutlinedInput label="PRODUCCIÓN" />}
+  //           renderValue={(selected) => selected.join(', ')}
+  //           MenuProps={MenuProps}
+  //         >
+  //           {producción.map((name) => (
+  //             <MenuItem key={name} value={name}>
+  //               <Checkbox checked={produccionSelection.indexOf(name) > -1} />
+  //               <ListItemText primary={name} />
+  //             </MenuItem>
+  //           ))}
+  //         </Select>
+  //       </FormControl>
+  //     </div>
 
-      <div>
-        <FormControl sx={{ m: 1, width: 300 }}>
-          <InputLabel id="demo-multiple-checkbox-label">TECNOLOGÍA DE IMPRESIÓN</InputLabel>
-          <Select
-            labelId="demo-multiple-checkbox-label"
-            id="demo-multiple-checkbox"
-            multiple
-            value={tecnologiaSelection}
-            onChange={handleTecnologiaChange}
-            input={<OutlinedInput label="TECNOLOGÍA DE IMPRESIÓN" />}
-            renderValue={(selected) => selected.join(', ')}
-            MenuProps={MenuProps}
-          >
-            {tecnologíaDeImpresión.map((name) => (
-              <MenuItem key={name} value={name}>
-                <Checkbox checked={tecnologiaSelection.indexOf(name) > -1} />
-                <ListItemText primary={name} />
-              </MenuItem>
-            ))}
-          </Select>
-        </FormControl>
-      </div>
+  //     <div>
+  //       <FormControl sx={{ m: 1, width: 300 }}>
+  //         <InputLabel id="demo-multiple-checkbox-label">TECNOLOGÍA DE IMPRESIÓN</InputLabel>
+  //         <Select
+  //           labelId="demo-multiple-checkbox-label"
+  //           id="demo-multiple-checkbox"
+  //           multiple
+  //           value={tecnologiaSelection}
+  //           onChange={handleTecnologiaChange}
+  //           input={<OutlinedInput label="TECNOLOGÍA DE IMPRESIÓN" />}
+  //           renderValue={(selected) => selected.join(', ')}
+  //           MenuProps={MenuProps}
+  //         >
+  //           {tecnologíaDeImpresión.map((name) => (
+  //             <MenuItem key={name} value={name}>
+  //               <Checkbox checked={tecnologiaSelection.indexOf(name) > -1} />
+  //               <ListItemText primary={name} />
+  //             </MenuItem>
+  //           ))}
+  //         </Select>
+  //       </FormControl>
+  //     </div>
 
-      <div>
-        <FormControl sx={{ m: 1, width: 300 }}>
-          <InputLabel id="demo-multiple-checkbox-label">ESPECIALIDAD</InputLabel>
-          <Select
-            labelId="demo-multiple-checkbox-label"
-            id="demo-multiple-checkbox"
-            multiple
-            value={especialidadSelection}
-            onChange={handleEspecialidadChange}
-            input={<OutlinedInput label="ESPECIALIDAD" />}
-            renderValue={(selected) => selected.join(', ')}
-            MenuProps={MenuProps}
-          >
-            {especialidad.map((name) => (
-              <MenuItem key={name} value={name}>
-                <Checkbox checked={especialidadSelection.indexOf(name) > -1} />
-                <ListItemText primary={name} />
-              </MenuItem>
-            ))}
-          </Select>
-        </FormControl>
-      </div>
-      </div>
+  //     <div>
+  //       <FormControl sx={{ m: 1, width: 300 }}>
+  //         <InputLabel id="demo-multiple-checkbox-label">ESPECIALIDAD</InputLabel>
+  //         <Select
+  //           labelId="demo-multiple-checkbox-label"
+  //           id="demo-multiple-checkbox"
+  //           multiple
+  //           value={especialidadSelection}
+  //           onChange={handleEspecialidadChange}
+  //           input={<OutlinedInput label="ESPECIALIDAD" />}
+  //           renderValue={(selected) => selected.join(', ')}
+  //           MenuProps={MenuProps}
+  //         >
+  //           {especialidad.map((name) => (
+  //             <MenuItem key={name} value={name}>
+  //               <Checkbox checked={especialidadSelection.indexOf(name) > -1} />
+  //               <ListItemText primary={name} />
+  //             </MenuItem>
+  //           ))}
+  //         </Select>
+  //       </FormControl>
+  //     </div>
+  //     </div>
 
-      <div id="localidad">
-      <Localidad/>
-      </div>
-      </>
-    );
-  }
+  //     <div id="localidad">
+  //     <Localidad/>
+  //     </div>
+  //     </>
+  //   );
+  // }
+
+
+  return (
+    <>
+  <div id="asoc">
+    <h2 className="sector-actividad">ASOCIADOS</h2>
+         <div>
+         <div>
+          <form>
+            <div className="multiselect">
+              <div className="selectBox">
+                <select>
+                  <option>PRODUCCIÓN</option>
+                </select>
+                <div className="overSelect"></div>
+              </div>
+              <div id="checkboxes">
+                {producción.map((name) => (
+                  <label key={name} value={name} data-filter={name}>
+                    <input type="checkbox" /> {name}
+                  </label>
+                ))}
+              </div>
+            </div>
+          </form>
+          <p id="filter-display"></p>
+          <div id="container"></div>
+        </div>
+  </div>
+
+  <div>
+  <div>
+          <form>
+            <div className="multiselect">
+              <div className="selectBox">
+                <select>
+                  <option>TECNOLOGÍA DE IMPRESIÓN</option>
+                </select>
+                <div className="overSelect"></div>
+              </div>
+              <div id="checkboxes">
+                {tecnologíaDeImpresión.map((name) => (
+                  <label key={name} value={name}  data-filter={name}>
+                    <input type="checkbox" /> {name}
+                  </label>
+                ))}
+              </div>
+            </div>
+          </form>
+          <p id="filter-display"></p>
+          <div id="container"></div>
+        </div>
+  </div>
+
+  <div>
+  <div>
+          <form>
+            <div className="multiselect">
+              <div className="selectBox">
+                <select>
+                  <option>ESPECIALIDAD</option>
+                </select>
+                <div className="overSelect"></div>
+              </div>
+              <div id="checkboxes">
+                {especialidad.map((name) => (
+                  <label key={name} value={name}  data-filter={name}>
+                    <input type="checkbox" /> {name}
+                  </label>
+                ))}
+              </div>
+            </div>
+          </form>
+          <p id="filter-display"></p>
+          <div id="container"></div>
+        </div>
+  </div>
+  </div>
+
+  <div id="localidad">
+  <Localidad/>
+  </div>
+  </>
+);
+}

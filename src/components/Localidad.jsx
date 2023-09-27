@@ -5,11 +5,10 @@
 // import ListItemText from "@mui/material/ListItemText";
 // import Select from "@mui/material/Select";
 // import Checkbox from "@mui/material/Checkbox";
-import * as React from "react";
-import FilterContext from '../context/FilterContext';
-import { useContext } from "react";
+// import * as React from "react";
+// import FilterContext from '../context/FilterContext';
+// import { useContext } from "react";
 import './Localidad.css';
-
 
 const region = [
   "Andalucía",
@@ -82,167 +81,79 @@ const provincia = [
   "Logroño",
 ];
 
-// const ITEM_HEIGHT = 48;
-// const ITEM_PADDING_TOP = 8;
-// const MenuProps = {
-//   PaperProps: {
-//     style: {
-//       maxHeight: ITEM_HEIGHT * 4.5 + ITEM_PADDING_TOP,
-//       width: 250,
-//     },
-//   },
-// };
 
 export default function Localidad() {
-  const [provinciaSelection, setProvinciaSelection] = React.useState([]);
-  const [regionSelection, setRegionSelection] = React.useState([]);
-
-  const handleProvinciaChange = (event) => {
-    setProvinciaSelection(event.target.value);
-    addFilterItem(event.target.value);
-
-  };
-
-   const handleRegionChange = (event) => {
-     setRegionSelection(event.target.value);
-     addFilterItem(event.target.value);
-   };
-
-  const { addFilterItem } = useContext(FilterContext);
-
-  // return (
-  //   <div>
-  //     <div id="localidad">
-  //       <h2 className="localidad">UBICACIÓN</h2>
-
-  //       <div>
-  //         <FormControl sx={{ m: 1, width: 300 }}>
-  //           <InputLabel id="demo-multiple-checkbox-label">COMUNIDAD AUTÓNOMA</InputLabel>
-  //           <Select
-  //             labelId="demo-multiple-checkbox-label"
-  //             id="demo-multiple-checkbox"
-  //             multiple
-  //             value={regionSelection}
-  //             onChange={handleRegionChange}
-  //             input={<OutlinedInput label="REGIÓN" />}
-  //             renderValue={(selected) => selected.join(", ")}
-  //             MenuProps={MenuProps}
-  //           >
-  //             {region.map((name) => (
-  //               <MenuItem key={name} value={name}>
-  //                 <Checkbox checked={regionSelection.indexOf(name) > -1} />
-  //                 <ListItemText primary={name} />
-  //               </MenuItem>
-  //             ))}
-  //           </Select>
-  //         </FormControl>
-  //       </div>
-
-  //       <div>
-  //         <FormControl sx={{ m: 1, width: 300 }}>
-  //           <InputLabel id="demo-multiple-checkbox-label">PROVINCIA</InputLabel>
-  //           <Select
-  //             labelId="demo-multiple-checkbox-label"
-  //             id="demo-multiple-checkbox"
-  //             multiple
-  //             value={provinciaSelection}
-  //             onChange={handleProvinciaChange}
-  //             input={<OutlinedInput label="PROVINCIA" />}
-  //             renderValue={(selected) => selected.join(", ")}
-  //             MenuProps={MenuProps}
-  //           >
-  //             {provincia.map((name) => (
-  //               <MenuItem key={name} value={name}>
-  //                 <Checkbox checked={provinciaSelection.indexOf(name) > -1} />
-  //                 <ListItemText primary={name} />
-  //               </MenuItem>
-  //             ))}
-  //           </Select>
-  //         </FormControl>
-  //       </div>
-  //     </div>
-  //   </div>
-  // );
-
-  // 
 
 
 
+// const [provinciaSelection, setProvinciaSelection] = React.useState([]);
+// const [regionSelection, setRegionSelection] = React.useState([]);
 
+// const handleProvinciaChange = (event) => {
+//   setProvinciaSelection(event.target.value);
+//   addFilterItem(event.target.value);
+// };
 
-  var expanded = false;
+//  const handleRegionChange = (event) => {
+//    setRegionSelection(event.target.value);
+//    addFilterItem(event.target.value);
+//  };
 
-  function showCheckboxes() {
-    var checkboxes = document.getElementById("checkboxes");
-    if (!expanded) {
-      checkboxes.style.display = "block";
-      expanded = true;
-    } else {
-      checkboxes.style.display = "none";
-      expanded = false;
-    }
-  }
+// const { addFilterItem } = useContext(FilterContext);
 
-  document.addEventListener("click", function (event) {
-    var checkboxes = document.getElementById("checkboxes");
-    var selectBox = document.querySelector(".selectBox");
-    
-    if (!selectBox.contains(event.target) && !checkboxes.contains(event.target)) {
-      checkboxes.style.display = "none";
-      expanded = false;
-    }
-  });
+// return (
+//   <div>
+//     <div id="localidad">
+//       <h2 className="localidad">UBICACIÓN</h2>
 
-  
+//       <div>
+//         <FormControl sx={{ m: 1, width: 300 }}>
+//           <InputLabel id="demo-multiple-checkbox-label">COMUNIDAD AUTÓNOMA</InputLabel>
+//           <Select
+//             labelId="demo-multiple-checkbox-label"
+//             id="demo-multiple-checkbox"
+//             multiple
+//             value={regionSelection}
+//             onChange={handleRegionChange}
+//             input={<OutlinedInput label="REGIÓN" />}
+//             renderValue={(selected) => selected.join(", ")}
+//             MenuProps={MenuProps}
+//           >
+//             {region.map((name) => (
+//               <MenuItem key={name} value={name}>
+//                 <Checkbox checked={regionSelection.indexOf(name) > -1} />
+//                 <ListItemText primary={name} />
+//               </MenuItem>
+//             ))}
+//           </Select>
+//         </FormControl>
+//       </div>
 
-  function showCheckboxess() {
-    var checkboxess = document.getElementById("checkboxess");
-    if (!expanded) {
-      checkboxess.style.display = "block";
-      expanded = true;
-    } else {
-      checkboxess.style.display = "none";
-      expanded = false;
-    }
-  }
-
-  document.addEventListener("click", function (event) {
-    var checkboxes = document.getElementById("checkboxess");
-    var selectBoxx = document.querySelector(".selectBoxx");
-    
-    if (!selectBoxx.contains(event.target) && !checkboxes.contains(event.target)) {
-      checkboxes.style.display = "none";
-      expanded = false;
-    }
-  });
-  
-
-  // isoooo
-const container = document.getElementById('container');
-const iso = new Isotope(container, {
-  itemSelector: '.element', 
-  layoutMode: 'fitRows', 
-});
-
-// function showSelectedItems() {
-//   const checkboxes = document.querySelectorAll('#checkboxes input[type="checkbox"]');
-//   const filters = [];
-
-//   checkboxes.forEach(checkbox => {
-//     if (checkbox.checked) {
-//       const filterValue = checkbox.getAttribute('id');
-//       filters.push(filterValue);
-//     }
-//   });
-
-//   const filter = filters.length > 0 ? filters.join(', ') : '*';
-//   iso.arrange({ filter });
-// }
-
-// const checkboxes = document.querySelectorAll('#checkboxes input[type="checkbox"]');
-// checkboxes.forEach(checkbox => {
-//   checkbox.addEventListener('change', showSelectedItems);
-// });
+//       <div>
+//         <FormControl sx={{ m: 1, width: 300 }}>
+//           <InputLabel id="demo-multiple-checkbox-label">PROVINCIA</InputLabel>
+//           <Select
+//             labelId="demo-multiple-checkbox-label"
+//             id="demo-multiple-checkbox"
+//             multiple
+//             value={provinciaSelection}
+//             onChange={handleProvinciaChange}
+//             input={<OutlinedInput label="PROVINCIA" />}
+//             renderValue={(selected) => selected.join(", ")}
+//             MenuProps={MenuProps}
+//           >
+//             {provincia.map((name) => (
+//               <MenuItem key={name} value={name}>
+//                 <Checkbox checked={provinciaSelection.indexOf(name) > -1} />
+//                 <ListItemText primary={name} />
+//               </MenuItem>
+//             ))}
+//           </Select>
+//         </FormControl>
+//       </div>
+//     </div>
+//   </div>
+// );
 
 
   return (
@@ -253,7 +164,7 @@ const iso = new Isotope(container, {
         <div className="comunidad-autonoma">
           <form>
             <div className="multiselect">
-              <div className="selectBox" onClick={showCheckboxes}>
+              <div className="selectBox">
                 <select>
                   <option>COMUNIDAD AUTÓNOMA</option>
                 </select>
@@ -261,7 +172,7 @@ const iso = new Isotope(container, {
               </div>
               <div id="checkboxes">
                 {region.map((name) => (
-                  <label key={name} value={name}>
+                  <label key={name} value={name} data-filter={name}>
                     <input type="checkbox" /> {name}
                   </label>
                 ))}
@@ -275,15 +186,15 @@ const iso = new Isotope(container, {
         <div className="provincia">
           <form>
             <div className="multiselect">
-              <div className="selectBoxx" onClick={showCheckboxess}>
+              <div className="selectBox">
                 <select>
                   <option>PROVINCIA</option>
                 </select>
                 <div className="overSelect"></div>
               </div>
-              <div id="checkboxess">
+              <div id="checkboxes">
                 {provincia.map((name) => (
-                  <label key={name} value={name}>
+                  <label key={name} value={name} data-filter={name}>
                     <input type="checkbox" /> {name}
                   </label>
                 ))}

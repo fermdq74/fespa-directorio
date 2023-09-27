@@ -11,6 +11,7 @@ export default function Empresa({ empresa }) {
 
   return (
     <>
+      <div className="filter-item"  data-empresa={empresa.Nombre}>
       <Card id="empresa" style={{ maxWidth: '540px' }} onClick={handleOpenModal}>
         {empresa.Logo && <Card.Img src={empresa.Logo} alt="..." />}
         <Card.Body className="card-body">
@@ -27,6 +28,7 @@ export default function Empresa({ empresa }) {
           </Card.Text>
         </Card.Body>
       </Card>
+      </div>
 
       <Modal size="lg" aria-labelledby="contained-modal-title-vcenter" centered show={showModal} onHide={handleCloseModal}>
         <Modal.Body>

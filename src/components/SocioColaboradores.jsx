@@ -1,26 +1,26 @@
-import * as React from 'react';
+// import * as React from 'react';
 import './Filtrado.css';
-import OutlinedInput from '@mui/material/OutlinedInput';
-import InputLabel from '@mui/material/InputLabel';
-import MenuItem from '@mui/material/MenuItem';
-import FormControl from '@mui/material/FormControl';
-import ListItemText from '@mui/material/ListItemText';
-import Select from '@mui/material/Select';
-import Checkbox from '@mui/material/Checkbox';
+// import OutlinedInput from '@mui/material/OutlinedInput';
+// import InputLabel from '@mui/material/InputLabel';
+// import MenuItem from '@mui/material/MenuItem';
+// import FormControl from '@mui/material/FormControl';
+// import ListItemText from '@mui/material/ListItemText';
+// import Select from '@mui/material/Select';
+// import Checkbox from '@mui/material/Checkbox';
 import Localidad from './Localidad';
-import FilterContext from '../context/FilterContext';
-import { useContext } from 'react';
+// import FilterContext from '../context/FilterContext';
+// import { useContext } from 'react';
 
-const ITEM_HEIGHT = 48;
-const ITEM_PADDING_TOP = 8;
-const MenuProps = {
-  PaperProps: {
-    style: {
-      maxHeight: ITEM_HEIGHT * 4.5 + ITEM_PADDING_TOP,
-      width: 250,
-    },
-  },
-};
+// const ITEM_HEIGHT = 48;
+// const ITEM_PADDING_TOP = 8;
+// const MenuProps = {
+//   PaperProps: {
+//     style: {
+//       maxHeight: ITEM_HEIGHT * 4.5 + ITEM_PADDING_TOP,
+//       width: 250,
+//     },
+//   },
+// };
 
 const distribuidor = [
   'Maquinaria de corte',
@@ -102,116 +102,102 @@ const tecnologíaDeImpresiónColab = [
 
 export default function SocioColaboradores(){
 
-  const [distribuidorSelection, setDistribuidorSelection] = React.useState([]);
-  const [fabricanteSelection, setFabricanteSelection] = React.useState([]);
-  const [tecnologiaColabSelection, setTecnologiaColabSelection] = React.useState([]);
+  // const [distribuidorSelection, setDistribuidorSelection] = React.useState([]);
+  // const [fabricanteSelection, setFabricanteSelection] = React.useState([]);
+  // const [tecnologiaColabSelection, setTecnologiaColabSelection] = React.useState([]);
 
 
-  const handleDistribuidorChange = (event) => {
-    setDistribuidorSelection(event.target.value);
-    addFilterItem(event.target.value);
-  };
+  // const handleDistribuidorChange = (event) => {
+  //   setDistribuidorSelection(event.target.value);
+  //   addFilterItem(event.target.value);
+  // };
 
-  const handleFabricanteChange = (event) => {
-    setFabricanteSelection(event.target.value);
-    addFilterItem(event.target.value);
-  };
+  // const handleFabricanteChange = (event) => {
+  //   setFabricanteSelection(event.target.value);
+  //   addFilterItem(event.target.value);
+  // };
 
-  const handleTecnologiaColabChange = (event) => {
-    setTecnologiaColabSelection(event.target.value);
-    addFilterItem(event.target.value);
-  };
+  // const handleTecnologiaColabChange = (event) => {
+  //   setTecnologiaColabSelection(event.target.value);
+  //   addFilterItem(event.target.value);
+  // };
 
-  const { addFilterItem } = useContext(FilterContext);
+  // const { addFilterItem } = useContext(FilterContext);
 
   return (
     <>
       <div id="socio-colab">
         <h2 className="sector-actividad">SOCIO COLABORADORES</h2>
         <div>
-          <FormControl sx={{ m: 1, width: 300 }}>
-            <InputLabel id="demo-multiple-checkbox-label">
-              DISTRIBUIDOR DE:{" "}
-            </InputLabel>
-            <Select
-              labelId="demo-multiple-checkbox-label"
-              id="demo-multiple-checkbox"
-              multiple
-              value={distribuidorSelection}
-              onChange={handleDistribuidorChange}
-              input={
-                <OutlinedInput
-                  label="  const handleRegionChange = (event) => {
-              setRegionSelection(event.target.value);
-            };
-          "
-                />
-              }
-              renderValue={(selected) => selected.join(", ")}
-              MenuProps={MenuProps}
-            >
-              {distribuidor.map((name) => (
-                <MenuItem key={name} value={name}>
-                  <Checkbox
-                    checked={distribuidorSelection.indexOf(name) > -1}
-                  />
-                  <ListItemText primary={name} />
-                </MenuItem>
-              ))}
-            </Select>
-          </FormControl>
+        <div>
+          <form>
+            <div className="multiselect">
+              <div className="selectBox">
+                <select>
+                  <option>DISTRIBUIDOR DE: </option>
+                </select>
+                <div className="overSelect"></div>
+              </div>
+              <div id="checkboxes">
+                {distribuidor.map((name) => (
+                  <label key={name} value={name} data-filter={name}>
+                    <input type="checkbox" /> {name}
+                  </label>
+                ))}
+              </div>
+            </div>
+          </form>
+          <p id="filter-display"></p>
+          <div id="container"></div>
+        </div>
         </div>
 
         <div>
-          <FormControl sx={{ m: 1, width: 300 }}>
-            <InputLabel id="demo-multiple-checkbox-label">
-              FABRICANTE DE:{" "}
-            </InputLabel>
-            <Select
-              labelId="demo-multiple-checkbox-label"
-              id="demo-multiple-checkbox"
-              multiple
-              value={fabricanteSelection}
-              onChange={handleFabricanteChange}
-              input={<OutlinedInput label="FABRICANTE DE:" />}
-              renderValue={(selected) => selected.join(", ")}
-              MenuProps={MenuProps}
-            >
-              {fabricante.map((name) => (
-                <MenuItem key={name} value={name}>
-                  <Checkbox checked={fabricanteSelection.indexOf(name) > -1} />
-                  <ListItemText primary={name} />
-                </MenuItem>
-              ))}
-            </Select>
-          </FormControl>
+        <div>
+          <form>
+            <div className="multiselect">
+              <div className="selectBox">
+                <select>
+                  <option>FABRICANTE DE: </option>
+                </select>
+                <div className="overSelect"></div>
+              </div>
+              <div id="checkboxes">
+                {fabricante.map((name) => (
+                  <label key={name} value={name}  data-filter={name}>
+                    <input type="checkbox" /> {name}
+                  </label>
+                ))}
+              </div>
+            </div>
+          </form>
+          <p id="filter-display"></p>
+          <div id="container"></div>
+        </div>
         </div>
 
         <div>
-          <FormControl sx={{ m: 1, width: 300 }}>
-            <InputLabel id="demo-multiple-checkbox-label">
-              TECNOLOGÍA DE IMPRESIÓN
-            </InputLabel>
-            <Select
-              labelId="demo-multiple-checkbox-label"
-              id="demo-multiple-checkbox"
-              multiple
-              value={tecnologiaColabSelection}
-              onChange={handleTecnologiaColabChange}
-              input={<OutlinedInput label="TECNOLOGÍA DE IMPRESIÓN" />}
-              renderValue={(selected) => selected.join(", ")}
-              MenuProps={MenuProps}
-            >
-              {tecnologíaDeImpresiónColab.map((name) => (
-                <MenuItem key={name} value={name}>
-                  <Checkbox
-                    checked={tecnologiaColabSelection.indexOf(name) > -1}
-                  />
-                  <ListItemText primary={name} />
-                </MenuItem>
-              ))}
-            </Select>
-          </FormControl>
+        <div>
+          <form>
+            <div className="multiselect">
+              <div className="selectBox">
+                <select>
+                  <option>TECNOLOGÍA DE IMPRESIÓN</option>
+                </select>
+                <div className="overSelect"></div>
+              </div>
+              <div id="checkboxes">
+                {tecnologíaDeImpresiónColab.map((name) => (
+                  <label key={name} value={name} data-filter={name} >
+                    <input type="checkbox" /> {name}
+                  </label>
+                ))}
+              </div>
+            </div>
+          </form>
+          <p id="filter-display"></p>
+          <div id="container"></div>
+        </div>
         </div>
       </div>
 

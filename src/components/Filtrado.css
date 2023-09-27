@@ -1,4 +1,4 @@
-.css-2m9kme-MuiFormControl-root {
+/* .css-2m9kme-MuiFormControl-root {
     width: 245px !important;
 }
 
@@ -40,7 +40,7 @@
 .css-9ddj71-MuiInputBase-root-MuiOutlinedInput-root.Mui-focused .MuiOutlinedInput-notchedOutline {
     border-color: #272727e3 !important;
     border-width: 2px;
-}
+} */
 
 h2.sector-actividad, h2.localidad {
     font-size: 18px;
@@ -69,9 +69,9 @@ div#asoc, div#socio-colab, div#localidad {
 
 @media (max-width: 992px) {
 
-    .css-2m9kme-MuiFormControl-root {
+    /* .css-2m9kme-MuiFormControl-root {
         width: 310px !important;
-    }
+    } */
 
     div.filtrado {
         display: grid;
